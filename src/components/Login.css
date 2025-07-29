@@ -230,7 +230,114 @@
 .login-navigation {
   text-align: center;
 }
+/* Agregar estos estilos a tu archivo Login.css existente */
 
+/* Estilos para usuarios demo */
+.demo-users {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.demo-users details {
+  cursor: pointer;
+}
+
+.demo-users summary {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 10px;
+  outline: none;
+}
+
+.demo-users summary:hover {
+  color: #007bff;
+}
+
+.demo-user-list {
+  margin-top: 10px;
+  padding-left: 15px;
+}
+
+.demo-user-list p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #6c757d;
+  font-family: 'Courier New', monospace;
+}
+
+/* Botones deshabilitados */
+.btn-primary:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-primary:disabled:hover {
+  background: #6c757d;
+  transform: none;
+}
+
+/* Mensajes de error mejorados */
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #f5c6cb;
+  margin: 15px 0;
+  font-size: 14px;
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Mejoras para inputs */
+.input-group input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+/* Loading spinner para botones */
+.btn-primary:disabled::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsivo mejorado */
+@media (max-width: 480px) {
+  .login-container {
+    margin: 10px;
+    padding: 20px;
+  }
+  
+  .demo-users {
+    padding: 10px;
+    font-size: 13px;
+  }
+  
+  .demo-user-list p {
+    font-size: 12px;
+  }
+}
 /* Animations */
 @keyframes slideInUp {
   from {
