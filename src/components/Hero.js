@@ -1,7 +1,7 @@
 import React from 'react';
 import './Hero.css';
 
-function Hero({ setVista, setEsVisitante, setMostrarLogin }) {
+function Hero({ setVista, setEsVisitante, setMostrarLogin,setMostrarRegistro }) {
   return (
     <div className="hero">
       <div className="hero-container">
@@ -63,19 +63,19 @@ function Hero({ setVista, setEsVisitante, setMostrarLogin }) {
         <div className="hero-stats">
           <div className="stats-grid">
             <div className="stat-item">
-              <span className="stat-number">10,000+</span>
+              <span className="stat-number">1,000+</span>
               <span className="stat-label">Libros disponibles</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">5,000+</span>
+              <span className="stat-number">5,00+</span>
               <span className="stat-label">Lectores activos</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">25,000+</span>
+              <span className="stat-number">2,500+</span>
               <span className="stat-label">Reseñas publicadas</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">98%</span>
+              <span className="stat-number">95%</span>
               <span className="stat-label">Satisfacción</span>
             </div>
           </div>
@@ -87,7 +87,7 @@ function Hero({ setVista, setEsVisitante, setMostrarLogin }) {
           <p>Únete hoy y descubre por qué miles de lectores ya confían en nosotros</p>
           <div className="cta-buttons">
             <button 
-              onClick={() => setMostrarLogin(true)}
+              onClick={() => setMostrarRegistro(true)}
               className="btn-cta-primary"
             >
               Crear cuenta gratis

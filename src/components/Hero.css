@@ -55,8 +55,8 @@
 }
 
 .btn-primary {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
+  background: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   border: 2px solid rgba(255, 255, 255, 0.3);
   padding: 15px 30px;
   font-size: 1.1rem;
@@ -75,7 +75,7 @@
 }
 
 .btn-secondary {
-  background: white;
+  background: rgb(246, 246, 246);
   color: #667eea;
   border: none;
   padding: 15px 30px;
@@ -189,6 +189,8 @@
   font-size: 2.5rem;
   margin-bottom: 20px;
   font-weight: 600;
+  color:#ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-cta p {
