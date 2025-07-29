@@ -5,6 +5,7 @@ import FiltroBusqueda from './components/FiltroBusqueda';
 import Header from './components/Header';
 import librosDemo from './data/LibrosDemo'; // libros precargados con imágenes, reseñas, etc.
 import SobreNosotros from './components/SobreNosotros';
+import Recomendaciones from './components/Recomendaciones';
 import './App.css';
 
 function App() {
@@ -79,6 +80,9 @@ useEffect(() => {
           <>
             <h2 className="text-xl font-bold mb-4">Libros Recomendados</h2>
             <p>Aquí podrías mostrar los libros con más reseñas o calificaciones.</p>
+                  <Recomendaciones libros={libros} />
+                  <LibroList libros={libros} onAgregarReseña={() => {}} />
+
             {/* Puedes aplicar lógica para filtrar aquí */}
           </>
         )}
