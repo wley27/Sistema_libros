@@ -23,9 +23,13 @@ export default function LibroCard({ libro, onAgregarReseña, onEliminar }) {
           <p className="libro-descripcion">{libro.descripcion}</p>
         </div>
 
-        {imagenValida && (
+        {(libro.imagen || libro.portada) && (
           <div className="libro-imagen-container">
-            <img src={libro.portada } alt={libro.titulo} className="libro-imagen" />
+            <img
+              src={libro.imagen || libro.portada}
+              alt={libro.titulo}
+              className="libro-imagen"
+            />
           </div>
         )}
       </div>

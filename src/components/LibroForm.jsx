@@ -25,7 +25,12 @@ export default function LibroForm({ onAgregar }) {
 
     onAgregar({
       id: Date.now(),
-      ...libro,
+      titulo: libro.titulo,
+      autor: libro.autor,
+      imagen: libro.imagen,
+      año: libro.año, 
+      genero: libro.genero, 
+      descripcion: libro.descripcion, 
     });
 
     setLibro({
@@ -79,9 +84,9 @@ export default function LibroForm({ onAgregar }) {
       <input
         type="text"
         name="imagen"
-        placeholder="URL de la Imagen"
         value={libro.imagen}
         onChange={manejarCambio}
+        placeholder="URL de la imagen"
       />
       <button type="submit">Agregar Libro</button>
     </form>

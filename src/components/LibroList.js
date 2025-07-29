@@ -3,7 +3,7 @@ import LibroCard from './LibroCard';
 import './LibroList.css';
 
 // LibroList.js
-export default function LibroList({ libros, onAgregarReseña }) {
+export default function LibroList({ libros, onAgregarReseña, onEliminar }) {
   return (
     <div className="libro-list">
       {libros.map((libro) => (
