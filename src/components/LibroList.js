@@ -11,6 +11,7 @@ export default function LibroList({ libros, onAgregarReseña }) {
           key={libro.id}
           libro={libro}
           onAgregarReseña={onAgregarReseña}
+          onEliminar={onEliminar}
         />
       ))}
     </div>

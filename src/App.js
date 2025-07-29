@@ -52,6 +52,11 @@ useEffect(() => {
     setLibros(actualizados);
   };
 
+  const eliminarLibro = (id) => {
+    setLibros(libros.filter((libro) => libro.id !== id));
+  };
+
+
   const librosFiltrados = libros.filter((libro) =>
     libro.titulo.toLowerCase().includes(filtro.toLowerCase())
   );

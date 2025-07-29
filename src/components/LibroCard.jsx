@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReseñaForm from './ReseñaForm';
 import './LibroCard.css';
 
-export default function LibroCard({ libro, onAgregarReseña }) {
+export default function LibroCard({ libro, onAgregarReseña, onEliminar }) {
   const [mostrarReseñas, setMostrarReseñas] = useState(false);
 
   const toggleReseñas = () => {
@@ -32,6 +32,10 @@ export default function LibroCard({ libro, onAgregarReseña }) {
 
       <button className="btn-reseñas" onClick={toggleReseñas}>
         {mostrarReseñas ? 'Ocultar Reseñas' : 'Ver / Agregar Reseñas'}
+      </button>
+
+      <button className="btn-reseñas" onClick={() => onEliminar(libro.id)}>
+        Eliminar
       </button>
 
       {mostrarReseñas && (
