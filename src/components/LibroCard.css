@@ -1,0 +1,257 @@
+.libro-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: none;
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 
+    0 8px 25px rgba(0, 95, 115, 0.1),
+    0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de brillo sutil en el fondo */
+.libro-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #005f73, #0a9396, #94d2bd, #e9d8a6);
+  border-radius: 22px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.libro-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 95, 115, 0.2),
+    0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.libro-card:hover::before {
+  opacity: 1;
+}
+
+.libro-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 25px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.libro-detalles {
+  flex: 1;
+  min-width: 250px;
+}
+
+.libro-detalles h3 {
+  color: #001219;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #005f73, #0a9396);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.libro-detalles p {
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.libro-detalles p strong {
+  color: #005f73;
+  font-weight: 600;
+}
+
+.libro-imagen-container {
+  flex: 0 0 160px;
+  position: relative;
+}
+
+.libro-imagen {
+  width: 160px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(45deg, #005f73, #0a9396, #94d2bd) border-box;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 25px rgba(0, 95, 115, 0.15);
+}
+
+.libro-imagen:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 15px 35px rgba(0, 95, 115, 0.25);
+}
+
+.libro-descripcion {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: #34495e;
+  line-height: 1.6;
+  padding: 12px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 10px;
+  border-left: 4px solid #0a9396;
+  transition: all 0.3s ease;
+}
+
+.libro-descripcion:hover {
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+  transform: translateX(5px);
+}
+
+.btn-reseñas {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #0a9396 0%, #005f73 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(10, 147, 150, 0.3);
+}
+
+.btn-reseñas::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-reseñas:hover {
+  background: linear-gradient(135deg, #94d2bd 0%, #0a9396 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(10, 147, 150, 0.4);
+}
+
+.btn-reseñas:hover::before {
+  left: 100%;
+}
+
+.btn-reseñas:active {
+  transform: translateY(0);
+}
+
+.reseñas-section {
+  margin-top: 25px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f1f8ff 0%, #e6f3ff 100%);
+  border-radius: 15px;
+  border: 1px solid #bee5eb;
+  animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reseñas-section h4 {
+  color: #005f73;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.lista-reseñas {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.lista-reseñas li {
+  background: white;
+  margin-bottom: 12px;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 4px solid #0a9396;
+  box-shadow: 0 2px 8px rgba(0, 95, 115, 0.1);
+  transition: all 0.3s ease;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.lista-reseñas li:hover {
+  transform: translateX(8px);
+  box-shadow: 0 4px 15px rgba(0, 95, 115, 0.15);
+}
+
+.lista-reseñas strong {
+  font-size: 1.1rem;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .libro-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .libro-imagen-container {
+    flex: none;
+  }
+  
+  .libro-detalles {
+    min-width: auto;
+  }
+}
+
+/* Efecto de pulso sutil para las estrellas */
+.lista-reseñas strong {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
