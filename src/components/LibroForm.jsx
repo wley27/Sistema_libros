@@ -8,7 +8,7 @@ export default function LibroForm({ onAgregar }) {
     genero: '',
     descripcion: '',
     año: '',
-    imagen: '',
+    portada: '',
   });
 
   const manejarCambio = (e) => {
@@ -34,7 +34,7 @@ export default function LibroForm({ onAgregar }) {
       genero: '',
       descripcion: '',
       año: '',
-      imagen: '',
+      portada: '',
     });
   };
 
@@ -78,9 +78,9 @@ export default function LibroForm({ onAgregar }) {
       />
       <input
         type="text"
-        name="imagen"
+        name="portada"
         placeholder="URL de la Imagen"
-        value={libro.imagen}
+        value={libro.portada}
         onChange={manejarCambio}
       />
       <button type="submit">Agregar Libro</button>

@@ -9,9 +9,6 @@ export default function LibroCard({ libro, onAgregarReseña }) {
     setMostrarReseñas(!mostrarReseñas);
   };
 
-  const imagenValida = <libro className="portada"></libro>; // mostrar cualquier imagen válida
-
-
   return (
     <div className="libro-card">
       <div className="libro-info">
@@ -23,9 +20,9 @@ export default function LibroCard({ libro, onAgregarReseña }) {
           <p className="libro-descripcion">{libro.descripcion}</p>
         </div>
 
-        {imagenValida && (
+        {libro.portada && (
           <div className="libro-imagen-container">
-            <img src={libro.portada } alt={libro.titulo} className="libro-imagen" />
+            <img src={libro.portada} alt={libro.titulo} className="libro-imagen" />
           </div>
         )}
       </div>
