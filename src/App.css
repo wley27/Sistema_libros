@@ -1,0 +1,139 @@
+.App {
+  padding-top: 90px; /* Ajusta según necesites */
+}
+
+/* O específicamente al main */
+.App main {
+  padding-top: 90px;
+}
+ 
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+/* Reset y base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.App {
+  min-height: 100%;
+  width: 100%;
+  padding: 20px;
+  background: white;
+}
+
+
+/* Títulos */
+h2 {
+  color: #0a9396;
+  margin-bottom: 15px;
+}
+
+
+/* Lista de libros */
+.libro-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+/* Libro individual */
+.libro {
+  background-color: #e0fbfc;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease;
+}
+
+.libro:hover {
+  transform: translateY(-5px);
+}
+
+.libro img {
+  max-width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.libro h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  color: #005f73;
+}
+
+.libro p {
+  flex-grow: 1;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.reseñas {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Botones de agregar reseña, etc. */
+.btn {
+  background-color: #0a9396;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn:hover {
+  background-color: #005f73;
+}
+
+
+/* Responsive */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+  header nav {
+    margin-top: 10px;
+  }
+  .libro-list {
+    grid-template-columns: 1fr;
+  }
+}
