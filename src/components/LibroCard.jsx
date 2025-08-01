@@ -4,9 +4,20 @@ import './LibroCard.css';
 
 export default function LibroCard({ libro, onAgregarReseña }) {
   const [mostrarReseñas, setMostrarReseñas] = useState(false);
+  const rol = localStorage.getItem("rol");
 
   const toggleReseñas = () => {
     setMostrarReseñas(!mostrarReseñas);
+  };
+
+    const eliminarLibro = (id) => {
+    const confirmar = window.confirm("¿Estás seguro de eliminar este libro?");
+    if (!confirmar) return;
+
+    const libros = JSON.parse(localStorage.getItem("libros")) || [];
+    const nuevosLibros = libros.filter((libro) => libro.id !== id);
+    localStorage.setItem("libros", JSON.stringify(nuevosLibros));
+    window.location.reload(); 
   };
 
   return (
@@ -30,6 +41,17 @@ export default function LibroCard({ libro, onAgregarReseña }) {
       <button className="btn-reseñas" onClick={toggleReseñas}>
         {mostrarReseñas ? 'Ocultar Reseñas' : 'Ver / Agregar Reseñas'}
       </button>
+
+            {/* Solo mostrar botón si es admin */}
+      {rol === "admin" && (
+        <button
+          className="btn-reseñas"
+          onClick={() => eliminarLibro(libro.id)}
+          style={{ backgroundColor: 'red', color: 'white', marginTop: '8px' }}
+        >
+          Eliminar
+        </button>
+      )}
 
       {mostrarReseñas && (
         <div className="reseñas-section">

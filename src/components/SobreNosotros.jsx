@@ -85,7 +85,7 @@ export default function SobreNosotros() {
             </div>
             <div className="contact-item">
               <span>📱</span>
-              <span>+1 (555) 123-4567</span>
+              <span>+593 (555) 123-4567</span>
             </div>
             <div className="contact-item">
               <span>🌍</span>
