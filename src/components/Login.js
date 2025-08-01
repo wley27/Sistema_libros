@@ -51,7 +51,8 @@ export default function Login({ onLogin, setMostrarLogin, setEsVisitante, setVis
             : u
         );
         localStorage.setItem('usuarios', JSON.stringify(usuariosActualizados));
-
+        localStorage.setItem('rol', encontrado.rol); // ✅ GUARDAR ROL
+        
         onLogin(encontrado.usuario, encontrado.rol);
       } else {
         setError('Credenciales incorrectas. Verifica tu usuario y contraseña.');
