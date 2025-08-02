@@ -3,17 +3,18 @@ import LibroList from './components/LibroList';
 import LibroForm from './components/LibroForm';
 import Hero from './components/Hero';
 import Login from './components/Login';
-import Register from './components/Register'; // Nuevo componente
+import Register from './components/Register';
 import FiltroBusqueda from './components/FiltroBusqueda';
 import Header from './components/Header';
-import librosDemo from './data/LibrosDemo'; // libros precargados
+import Recomendaciones from './components/Recomendaciones'; 
+import librosDemo from './data/LibrosDemo';
 import SobreNosotros from './components/SobreNosotros';
 import './App.css';
 
 // Usuarios demo iniciales (se migrarán al localStorage)
 const usuariosDemo = [
   { id: 1, usuario: 'admin', clave: '1234', rol: 'admin', nombre: 'Administrador', email: 'admin@biblioteca.com' },
-  { id: 2, usuario: 'lector', clave: 'libros', rol: 'usuario', nombre: 'Usuario Lector', email: 'lector@email.com' },
+  { id: 2, usuario: 'lector', clave: 'libros', rol: 'usuario', nombre: 'Usuario Lector', emaxil: 'lector@email.com' },
   { id: 3, usuario: 'usuario1', clave: '123', rol: 'usuario', nombre: 'Juan Pérez', email: 'juan@email.com' },
   { id: 4, usuario: 'usuario2', clave: 'abc', rol: 'usuario', nombre: 'María García', email: 'maria@email.com' }
 ];
@@ -26,7 +27,7 @@ function App() {
   const [rolUsuario, setRolUsuario] = useState('');
   const [esVisitante, setEsVisitante] = useState(false);
   const [mostrarLogin, setMostrarLogin] = useState(false);
-  const [mostrarRegistro, setMostrarRegistro] = useState(false); // Nuevo estado
+  const [mostrarRegistro, setMostrarRegistro] = useState(false);
 
   // Inicializar usuarios demo en localStorage si no existen
   useEffect(() => {
@@ -122,7 +123,7 @@ function App() {
     libro.titulo.toLowerCase().includes(filtro.toLowerCase())
   );
 
-  // 🔒 Mostrar Registro si está activo
+  // Mostrar Registro si está activo
   if (mostrarRegistro) {
     return (
       <Register 
@@ -132,7 +133,7 @@ function App() {
     );
   }
 
-  // 🔒 Mostrar Login si está activo
+  // Mostrar Login si está activo
   if (mostrarLogin) {
     return (
       <Login 
@@ -145,14 +146,14 @@ function App() {
     );
   }
 
-  // 🔒 Mostrar Hero si no hay sesión ni visita
+  // Mostrar Hero si no hay sesión ni visita
   if (!usuario && !esVisitante) {
     return (
       <Hero 
         setVista={setVista} 
         setEsVisitante={setEsVisitante} 
         setMostrarLogin={setMostrarLogin}
-        setMostrarRegistro={setMostrarRegistro} // Pasar la función
+        setMostrarRegistro={setMostrarRegistro}
       />
     );
   }
@@ -168,7 +169,7 @@ function App() {
         setRolUsuario={setRolUsuario}
         setEsVisitante={setEsVisitante}
         setMostrarLogin={setMostrarLogin}
-        cerrarSesion={cerrarSesion} // Función de cierre de sesión mejorada
+        cerrarSesion={cerrarSesion}
       />
       <main className="p-4">
         {vista === 'libros' && (
@@ -184,7 +185,7 @@ function App() {
                 )}
                 {esVisitante && (
                   <span className="visitante-info">
-                    - 👁️ Modo Visitante
+                    - Modo Visitante
                   </span>
                 )}
               </h2>
@@ -216,33 +217,19 @@ function App() {
           </div>
         )}
 
+      
         {vista === 'recomendados' && (
-          <>
-            <h2 className="text-xl font-bold mb-4">⭐ Libros Recomendados</h2>
-            <div className="recomendados-container">
-              <p className="mb-4">Descubre los libros más valorados por nuestra comunidad:</p>
-              {libros
-                .filter(libro => libro.reseñas && libro.reseñas.length > 0)
-                .sort((a, b) => (b.reseñas?.length || 0) - (a.reseñas?.length || 0))
-                .slice(0, 5)
-                .map(libro => (
-                  <div key={libro.id} className="libro-recomendado mb-3 p-3 border rounded">
-                    <h3 className="font-bold">{libro.titulo}</h3>
-                    <p className="text-sm text-gray-600">Por {libro.autor}</p>
-                    <p className="text-sm">📝 {libro.reseñas?.length || 0} reseñas</p>
-                  </div>
-                ))
-              }
-              {libros.filter(libro => libro.reseñas && libro.reseñas.length > 0).length === 0 && (
-                <p className="text-gray-500">Aún no hay libros con reseñas. ¡Sé el primero en agregar una!</p>
-              )}
-            </div>
-          </>
+          <Recomendaciones 
+            libros={libros}
+            onAgregarReseña={agregarReseña}
+            usuario={usuario}
+            esVisitante={esVisitante}
+          />
         )}
 
         {vista === 'sobre' && <SobreNosotros />}
 
-        {/* Vista de perfil de usuario (nueva funcionalidad) */}
+        {/* Vista de perfil de usuario (funcionalidad existente) */}
         {vista === 'perfil' && usuario && (
           <div className="perfil-container">
             <h2 className="text-xl font-bold mb-4">👤 Mi Perfil</h2>
@@ -257,8 +244,7 @@ function App() {
               }</p>
               <button 
                 onClick={cerrarSesion}
-                className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-              >
+                className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
                 🚪 Cerrar Sesión
               </button>
             </div>

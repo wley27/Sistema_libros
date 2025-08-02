@@ -2,11 +2,21 @@ import React, { useState } from 'react';
 import ReseñaForm from './ReseñaForm';
 import './LibroCard.css';
 
-export default function LibroCard({ libro, onAgregarReseña }) {
+export default function LibroCard({ 
+  libro, 
+  onAgregarReseña, 
+  onEliminarLibro, 
+  rolUsuario, 
+  esVisitante 
+}) {
   const [mostrarReseñas, setMostrarReseñas] = useState(false);
 
   const toggleReseñas = () => {
     setMostrarReseñas(!mostrarReseñas);
+  };
+
+  const manejarEliminar = () => {
+    onEliminarLibro(libro.id);
   };
 
   return (
@@ -27,9 +37,21 @@ export default function LibroCard({ libro, onAgregarReseña }) {
         )}
       </div>
 
-      <button className="btn-reseñas" onClick={toggleReseñas}>
-        {mostrarReseñas ? 'Ocultar Reseñas' : 'Ver / Agregar Reseñas'}
-      </button>
+      {/* Botones de acción */}
+      <div className="libro-acciones">
+        <button className="btn-reseñas" onClick={toggleReseñas}>
+          {mostrarReseñas ? 'Ocultar Reseñas' : 'Ver / Agregar Reseñas'}
+        </button>
+        
+        {rolUsuario === 'admin' && (
+          <button 
+            onClick={manejarEliminar}
+            className="btn-eliminar"
+          >
+            🗑️ Eliminar
+          </button>
+        )}
+      </div>
 
       {mostrarReseñas && (
         <div className="reseñas-section">
@@ -45,7 +67,9 @@ export default function LibroCard({ libro, onAgregarReseña }) {
           ) : (
             <p>No hay reseñas todavía.</p>
           )}
-          <ReseñaForm onAgregar={(reseña) => onAgregarReseña(libro.id, reseña)} />
+          {!esVisitante && (
+            <ReseñaForm onAgregar={(reseña) => onAgregarReseña(libro.id, reseña)} />
+          )}
         </div>
       )}
     </div>

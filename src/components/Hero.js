@@ -19,14 +19,12 @@ function Hero({ setVista, setEsVisitante, setMostrarLogin,setMostrarRegistro }) 
                   setEsVisitante(true);
                   setVista('libros');
                 }} 
-                className="btn-primary"
-              >
+                className="btn-primary">
                 🔍 Explorar como visitante
               </button>
               <button 
                 onClick={() => setMostrarLogin(true)}
-                className="btn-secondary"
-              >
+                className="btn-secondary">
                 🚀 Iniciar sesión
               </button>
             </div>
@@ -88,8 +86,7 @@ function Hero({ setVista, setEsVisitante, setMostrarLogin,setMostrarRegistro }) 
           <div className="cta-buttons">
             <button 
               onClick={() => setMostrarRegistro(true)}
-              className="btn-cta-primary"
-            >
+              className="btn-cta-primary">
               Crear cuenta gratis
             </button>
             <button 
@@ -97,8 +94,7 @@ function Hero({ setVista, setEsVisitante, setMostrarLogin,setMostrarRegistro }) 
                 setEsVisitante(true);
                 setVista('libros');
               }}
-              className="btn-cta-secondary"
-            >
+              className="btn-cta-secondary">
               Ver libros ahora
             </button>
           </div>

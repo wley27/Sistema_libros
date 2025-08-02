@@ -255,3 +255,56 @@
     transform: scale(1.05);
   }
 }
+/* Agregar estos estilos a tu LibroCard.css existente */
+
+.libro-acciones {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+.btn-eliminar {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-eliminar:hover {
+  background-color: #c82333;
+}
+
+.btn-eliminar:active {
+  transform: translateY(1px);
+}
+
+/* Ajuste para el botón de reseñas para que se vea consistente */
+.btn-reseñas {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease;
+}
+
+.btn-reseñas:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive para los botones */
+@media (max-width: 768px) {
+  .libro-acciones {
+    justify-content: center;
+  }
+}
