@@ -122,8 +122,7 @@ export default function Login({ onLogin, setMostrarLogin, setEsVisitante, setVis
           <p>¿No tienes cuenta?</p>
           <button 
             onClick={irARegistro}
-            className="btn-link"
-          >
+            className="btn-link">
             Registrarse gratis
           </button>
         </div>

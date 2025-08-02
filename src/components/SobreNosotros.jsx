@@ -85,11 +85,11 @@ export default function SobreNosotros() {
             </div>
             <div className="contact-item">
               <span>📱</span>
-              <span>+1 (555) 123-4567</span>
+              <span>+ (593) 987654321</span>
             </div>
             <div className="contact-item">
               <span>🌍</span>
-              <span>www.librosrecomendados.com</span>
+              <span>https://sistemalibros.netlify.app/</span>
             </div>
           </div>
         </section>

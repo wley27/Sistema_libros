@@ -18,8 +18,7 @@ export default function ReseñaForm({ onAgregar }) {
       <label>Calificación: </label>
       <select
         value={calificacion}
-        onChange={(e) => setCalificacion(Number(e.target.value))}
-      >
+        onChange={(e) => setCalificacion(Number(e.target.value))}>
         {[5, 4, 3, 2, 1].map((val) => (
           <option key={val} value={val}>{val} ⭐</option>
         ))}
@@ -31,8 +30,7 @@ export default function ReseñaForm({ onAgregar }) {
         onChange={(e) => setComentario(e.target.value)}
         required
         rows={3}
-        style={{ width: '100%', marginTop: '5px' }}
-      />
+        style={{ width: '100%', marginTop: '5px' }}/>
       <button type="submit" style={{ marginTop: '5px' }}>Agregar reseña</button>
     </form>
   );
