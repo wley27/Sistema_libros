@@ -65,7 +65,7 @@ function Hero({ setVista, setEsVisitante, setMostrarLogin,setMostrarRegistro }) 
               <span className="stat-label">Libros disponibles</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">5,00+</span>
+              <span className="stat-number">500+</span>
               <span className="stat-label">Lectores activos</span>
             </div>
             <div className="stat-item">
